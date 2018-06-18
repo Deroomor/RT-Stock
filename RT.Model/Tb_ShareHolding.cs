@@ -19,7 +19,7 @@ namespace RT.Model
         public string Name { get; set; }
         public string Remark { get; set; }
         public int HoldingValue { get; set; }
-        public int HoldingMethod { get; set; }
+        public HoldingMethods HoldingMethod { get; set; }
         public decimal PositonRate { get; set; }
         public decimal PeopleRate { get; set; }
         public int EvaluatingMethod { get; set; }

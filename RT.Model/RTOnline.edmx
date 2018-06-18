@@ -864,7 +864,7 @@
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HoldingValue" Type="Int32" Nullable="false" />
-          <Property Name="HoldingMethod" Type="Int32" Nullable="false" />
+          <Property Name="HoldingMethod" Type="StockOnlineModel.HoldingMethods" Nullable="false" />
           <Property Name="PositonRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="PeopleRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="EvaluatingMethod" Type="Int32" Nullable="false" />
@@ -928,6 +928,11 @@
           <EntitySet Name="Tb_ShareHolding" EntityType="Self.Tb_ShareHolding" />
           <EntitySet Name="Tb_Structure" EntityType="Self.Tb_Structure" />
         </EntityContainer>
+        <EnumType Name="HoldingMethods">
+          <Member Name="Position" Value="1" />
+          <Member Name="PostionAndPeople" Value="2" />
+          <Member Name="PostionAndFactor" Value="3" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

@@ -15,7 +15,7 @@ namespace RT.UI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-
+            
 
             ContainerBuilder builder0 = new ContainerBuilder();
             var Container = builder0.Build();
