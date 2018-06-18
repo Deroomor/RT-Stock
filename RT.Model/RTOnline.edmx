@@ -1,0 +1,1417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StockOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tb_BasicInfo">
+          <Key>
+            <PropertyRef Name="BasicID" />
+          </Key>
+          <Property Name="BasicID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BasicName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Classlayer" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tb_Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemValue" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="BaseColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Company">
+          <Key>
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="EnterpriseID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="EnterpriseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LegalPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyType" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseType" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompanyAttribute" Type="nvarchar" MaxLength="50" />
+          <Property Name="SetUpTime" Type="datetime" />
+          <Property Name="IsFamily" Type="bit" Nullable="false" />
+          <Property Name="RegisterCapital" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SaleCapital" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CompanyScale" Type="int" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="CompanyNo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tb_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="HigheDepartment" Type="nvarchar" MaxLength="100" />
+          <Property Name="HigheDepartmentID" Type="uniqueidentifier" />
+          <Property Name="ClassLayer" Type="int" />
+        </EntityType>
+        <EntityType Name="Tb_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DepartmentID" Type="uniqueidentifier" />
+          <Property Name="PostID" Type="uniqueidentifier" />
+          <Property Name="Avatar" Type="image" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="100" />
+          <Property Name="JobAge" Type="nvarchar" MaxLength="100" />
+          <Property Name="Rank" Type="nvarchar" MaxLength="100" />
+          <Property Name="AnnualSalary" Type="nvarchar" MaxLength="100" />
+          <Property Name="EntryTime" Type="datetime" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" />
+          <Property Name="EmployeeNum" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedFactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FactorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FactorRate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPeople">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FinalShareValue" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPeopleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatedPeopleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatedFactorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Score" Type="float" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPostion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PositionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NumberOfPost" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FinalShareValue" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="DepartmentID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatingMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CompleteEvaluating" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tb_FileInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileUrl" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FileAuthor" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tb_IncentiveObject">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IncentiveID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PartnerPrimaryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IncentivePost" Type="nvarchar" MaxLength="200" />
+          <Property Name="IncentiveName" Type="nvarchar" MaxLength="200" />
+          <Property Name="IncentiveNum" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HoldPercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Measure">
+          <Key>
+            <PropertyRef Name="MeasureID" />
+          </Key>
+          <Property Name="MeasureID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProgramID" Type="uniqueidentifier" />
+          <Property Name="MeasureTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="MeasureTime" Type="datetime" />
+          <Property Name="Valuation" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="SharesNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_MeasurePartner">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SharesCount" Type="int" />
+          <Property Name="PartnerID" Type="uniqueidentifier" />
+          <Property Name="MeasureID" Type="uniqueidentifier" />
+          <Property Name="PartnerType" Type="nvarchar" MaxLength="200" />
+          <Property Name="PartnerName" Type="nvarchar" MaxLength="200" />
+          <Property Name="PartnerPercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ProgramID" Type="uniqueidentifier" />
+          <Property Name="TransferWayID" Type="uniqueidentifier" />
+          <Property Name="TransferWay" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="PartnerTypeID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tb_MeasureProgram">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsShares" Type="bit" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tb_Mechanism">
+          <Key>
+            <PropertyRef Name="MechanismID" />
+          </Key>
+          <Property Name="MechanismID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="MechanismName" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsShares" Type="bit" Nullable="false" />
+          <Property Name="SharesNum" Type="int" />
+          <Property Name="SetupTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="300" />
+          <Property Name="ParentBodyID" Type="uniqueidentifier" />
+          <Property Name="ParentBody" Type="nvarchar" MaxLength="300" />
+          <Property Name="ParentHoldPercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ParentHoldCoun" Type="int" Nullable="false" />
+          <Property Name="ClassLayer" Type="int" Nullable="false" />
+          <Property Name="IsSpecial" Type="bit" Nullable="false" />
+          <Property Name="StructureID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tb_Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tb_News">
+          <Key>
+            <PropertyRef Name="NewID" />
+          </Key>
+          <Property Name="NewID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="CategoryID" Type="uniqueidentifier" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Source" Type="nvarchar" MaxLength="200" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content" Type="text" />
+          <Property Name="ReleaseTime" Type="datetime" />
+          <Property Name="ReleaseUserID" Type="uniqueidentifier" />
+          <Property Name="ReleaseStatus" Type="bit" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="PageView" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_PeopleScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FactorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatedPeopleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatingMasterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Score" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="PostName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tb_PostionScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatedPositionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EvaluatingMasterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="PositionLevel" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_PostionScoreDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostionScoreId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="PositionFactor" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="PositionFactorItem" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Quota">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuotaID" Type="uniqueidentifier" />
+          <Property Name="MeasureID" Type="uniqueidentifier" />
+          <Property Name="QuotaName" Type="nvarchar" MaxLength="100" />
+          <Property Name="QuotaValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="QuotaType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Shareholde">
+          <Key>
+            <PropertyRef Name="ShareholdeID" />
+          </Key>
+          <Property Name="ShareholdeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="HoldMechanism" Type="nvarchar" MaxLength="100" />
+          <Property Name="HoldPercent" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HoldCoun" Type="int" />
+          <Property Name="HoldCategoryID" Type="uniqueidentifier" />
+          <Property Name="HoldCategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="HoldName" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoldAttributeID" Type="uniqueidentifier" />
+          <Property Name="HoldAttributeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsShares" Type="bit" Nullable="false" />
+          <Property Name="SharesCount" Type="int" />
+          <Property Name="ShareTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="300" />
+          <Property Name="ParentID" Type="uniqueidentifier" />
+          <Property Name="ClassLayer" Type="int" />
+          <Property Name="StructureID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tb_ShareHolding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="HoldingValue" Type="int" Nullable="false" />
+          <Property Name="HoldingMethod" Type="int" Nullable="false" />
+          <Property Name="PositonRate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PeopleRate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EvaluatingMethod" Type="int" Nullable="false" />
+          <Property Name="EvalutatingStep" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="LastModifier" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" Nullable="false" />
+          <Property Name="EvaluatingType" Type="int" Nullable="false" />
+          <Property Name="EvaluateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tb_Structure">
+          <Key>
+            <PropertyRef Name="StructureID" />
+          </Key>
+          <Property Name="StructureID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Creator" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastModiTime" Type="datetime" />
+          <Property Name="LastModifier" Type="uniqueidentifier" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="StructureName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnterpriseID" Type="uniqueidentifier" />
+          <Property Name="EnterpriseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsShares" Type="bit" Nullable="false" />
+          <Property Name="SharesNum" Type="int" Nullable="false" />
+          <Property Name="PredictionDate" Type="datetime" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="IsActualHold" Type="bit" Nullable="false" />
+          <Property Name="ActualHoldID" Type="uniqueidentifier" />
+          <Property Name="ActualHoldName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ActualHoldNumShares" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualHoldNum" Type="int" />
+        </EntityType>
+        <EntityContainer Name="StockOnlineModelStoreContainer">
+          <EntitySet Name="Tb_BasicInfo" EntityType="Self.Tb_BasicInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Category" EntityType="Self.Tb_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Company" EntityType="Self.Tb_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Department" EntityType="Self.Tb_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Employee" EntityType="Self.Tb_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_EvaluatedFactor" EntityType="Self.Tb_EvaluatedFactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_EvaluatedPeople" EntityType="Self.Tb_EvaluatedPeople" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_EvaluatedPeopleDetail" EntityType="Self.Tb_EvaluatedPeopleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_EvaluatedPostion" EntityType="Self.Tb_EvaluatedPostion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_EvaluatingMaster" EntityType="Self.Tb_EvaluatingMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_FileInfo" EntityType="Self.Tb_FileInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_IncentiveObject" EntityType="Self.Tb_IncentiveObject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Measure" EntityType="Self.Tb_Measure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_MeasurePartner" EntityType="Self.Tb_MeasurePartner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_MeasureProgram" EntityType="Self.Tb_MeasureProgram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Mechanism" EntityType="Self.Tb_Mechanism" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Member" EntityType="Self.Tb_Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_News" EntityType="Self.Tb_News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_PeopleScore" EntityType="Self.Tb_PeopleScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Post" EntityType="Self.Tb_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_PostionScore" EntityType="Self.Tb_PostionScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_PostionScoreDetail" EntityType="Self.Tb_PostionScoreDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Quota" EntityType="Self.Tb_Quota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Shareholde" EntityType="Self.Tb_Shareholde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_ShareHolding" EntityType="Self.Tb_ShareHolding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Structure" EntityType="Self.Tb_Structure" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tb_BasicInfo">
+          <Key>
+            <PropertyRef Name="BasicID" />
+          </Key>
+          <Property Name="BasicID" Type="Guid" Nullable="false" />
+          <Property Name="BasicName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Classlayer" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Guid" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemValue" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BaseColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Company">
+          <Key>
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="EnterpriseID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LegalPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAttribute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SetUpTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFamily" Type="Boolean" Nullable="false" />
+          <Property Name="RegisterCapital" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SaleCapital" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CompanyScale" Type="Int32" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="EnterpriseID" Type="Guid" />
+          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HigheDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HigheDepartmentID" Type="Guid" />
+          <Property Name="ClassLayer" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tb_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentID" Type="Guid" />
+          <Property Name="PostID" Type="Guid" />
+          <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JobAge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AnnualSalary" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EntryTime" Type="DateTime" Precision="3" />
+          <Property Name="EnterpriseID" Type="Guid" />
+          <Property Name="EmployeeNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedFactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="FactorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FactorRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPeople">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeID" Type="Guid" Nullable="false" />
+          <Property Name="FinalShareValue" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPeopleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatedPeopleId" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatedFactorId" Type="Guid" Nullable="false" />
+          <Property Name="Score" Type="Double" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatedPostion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="PositionId" Type="Guid" Nullable="false" />
+          <Property Name="NumberOfPost" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FinalShareValue" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="DepartmentID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_EvaluatingMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CompleteEvaluating" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_FileInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileAuthor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tb_IncentiveObject">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="Guid" Nullable="false" />
+          <Property Name="IncentiveID" Type="Guid" Nullable="false" />
+          <Property Name="PartnerPrimaryID" Type="Guid" Nullable="false" />
+          <Property Name="IncentivePost" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IncentiveName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IncentiveNum" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HoldPercent" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Measure">
+          <Key>
+            <PropertyRef Name="MeasureID" />
+          </Key>
+          <Property Name="MeasureID" Type="Guid" Nullable="false" />
+          <Property Name="ProgramID" Type="Guid" />
+          <Property Name="MeasureTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureTime" Type="DateTime" Precision="3" />
+          <Property Name="Valuation" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="SharesNum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_MeasurePartner">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="Guid" Nullable="false" />
+          <Property Name="SharesCount" Type="Int32" />
+          <Property Name="PartnerID" Type="Guid" />
+          <Property Name="MeasureID" Type="Guid" />
+          <Property Name="PartnerType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerPercent" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ProgramID" Type="Guid" />
+          <Property Name="TransferWayID" Type="Guid" />
+          <Property Name="TransferWay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="PartnerTypeID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tb_MeasureProgram">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="Guid" Nullable="false" />
+          <Property Name="ProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsShares" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="EnterpriseID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tb_Mechanism">
+          <Key>
+            <PropertyRef Name="MechanismID" />
+          </Key>
+          <Property Name="MechanismID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="MechanismName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsShares" Type="Boolean" Nullable="false" />
+          <Property Name="SharesNum" Type="Int32" />
+          <Property Name="SetupTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ParentBodyID" Type="Guid" />
+          <Property Name="ParentBody" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ParentHoldPercent" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ParentHoldCoun" Type="Int32" Nullable="false" />
+          <Property Name="ClassLayer" Type="Int32" Nullable="false" />
+          <Property Name="IsSpecial" Type="Boolean" Nullable="false" />
+          <Property Name="StructureID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tb_Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tb_News">
+          <Key>
+            <PropertyRef Name="NewID" />
+          </Key>
+          <Property Name="NewID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Guid" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseTime" Type="DateTime" Precision="3" />
+          <Property Name="ReleaseUserID" Type="Guid" />
+          <Property Name="ReleaseStatus" Type="Boolean" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="PageView" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_PeopleScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FactorId" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatedPeopleId" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatingMasterId" Type="Guid" Nullable="false" />
+          <Property Name="Score" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="PostName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseID" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tb_PostionScore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatedPositionId" Type="Guid" Nullable="false" />
+          <Property Name="EvaluatingMasterId" Type="Guid" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="ShareHoldingId" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PositionLevel" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_PostionScoreDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PostionScoreId" Type="Guid" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="PositionFactor" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="PositionFactorItem" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Quota">
+          <Key>
+            <PropertyRef Name="PrimaryID" />
+          </Key>
+          <Property Name="PrimaryID" Type="Guid" Nullable="false" />
+          <Property Name="QuotaID" Type="Guid" />
+          <Property Name="MeasureID" Type="Guid" />
+          <Property Name="QuotaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QuotaValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="QuotaType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Shareholde">
+          <Key>
+            <PropertyRef Name="ShareholdeID" />
+          </Key>
+          <Property Name="ShareholdeID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="HoldMechanism" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HoldPercent" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HoldCoun" Type="Int32" />
+          <Property Name="HoldCategoryID" Type="Guid" />
+          <Property Name="HoldCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HoldName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HoldAttributeID" Type="Guid" />
+          <Property Name="HoldAttributeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsShares" Type="Boolean" Nullable="false" />
+          <Property Name="SharesCount" Type="Int32" />
+          <Property Name="ShareTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Guid" />
+          <Property Name="ClassLayer" Type="Int32" />
+          <Property Name="StructureID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tb_ShareHolding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EnterpriseID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoldingValue" Type="Int32" Nullable="false" />
+          <Property Name="HoldingMethod" Type="Int32" Nullable="false" />
+          <Property Name="PositonRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PeopleRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EvaluatingMethod" Type="Int32" Nullable="false" />
+          <Property Name="EvalutatingStep" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="LastModifier" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EvaluatingType" Type="Int32" Nullable="false" />
+          <Property Name="EvaluateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tb_Structure">
+          <Key>
+            <PropertyRef Name="StructureID" />
+          </Key>
+          <Property Name="StructureID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="Guid" Nullable="false" />
+          <Property Name="LastModiTime" Type="DateTime" Precision="3" />
+          <Property Name="LastModifier" Type="Guid" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="StructureName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseID" Type="Guid" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsShares" Type="Boolean" Nullable="false" />
+          <Property Name="SharesNum" Type="Int32" Nullable="false" />
+          <Property Name="PredictionDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="IsActualHold" Type="Boolean" Nullable="false" />
+          <Property Name="ActualHoldID" Type="Guid" />
+          <Property Name="ActualHoldName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ActualHoldNumShares" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualHoldNum" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="StockOnlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tb_BasicInfo" EntityType="Self.Tb_BasicInfo" />
+          <EntitySet Name="Tb_Category" EntityType="Self.Tb_Category" />
+          <EntitySet Name="Tb_Company" EntityType="Self.Tb_Company" />
+          <EntitySet Name="Tb_Department" EntityType="Self.Tb_Department" />
+          <EntitySet Name="Tb_Employee" EntityType="Self.Tb_Employee" />
+          <EntitySet Name="Tb_EvaluatedFactor" EntityType="Self.Tb_EvaluatedFactor" />
+          <EntitySet Name="Tb_EvaluatedPeople" EntityType="Self.Tb_EvaluatedPeople" />
+          <EntitySet Name="Tb_EvaluatedPeopleDetail" EntityType="Self.Tb_EvaluatedPeopleDetail" />
+          <EntitySet Name="Tb_EvaluatedPostion" EntityType="Self.Tb_EvaluatedPostion" />
+          <EntitySet Name="Tb_EvaluatingMaster" EntityType="Self.Tb_EvaluatingMaster" />
+          <EntitySet Name="Tb_FileInfo" EntityType="Self.Tb_FileInfo" />
+          <EntitySet Name="Tb_IncentiveObject" EntityType="Self.Tb_IncentiveObject" />
+          <EntitySet Name="Tb_Measure" EntityType="Self.Tb_Measure" />
+          <EntitySet Name="Tb_MeasurePartner" EntityType="Self.Tb_MeasurePartner" />
+          <EntitySet Name="Tb_MeasureProgram" EntityType="Self.Tb_MeasureProgram" />
+          <EntitySet Name="Tb_Mechanism" EntityType="Self.Tb_Mechanism" />
+          <EntitySet Name="Tb_Member" EntityType="Self.Tb_Member" />
+          <EntitySet Name="Tb_News" EntityType="Self.Tb_News" />
+          <EntitySet Name="Tb_PeopleScore" EntityType="Self.Tb_PeopleScore" />
+          <EntitySet Name="Tb_Post" EntityType="Self.Tb_Post" />
+          <EntitySet Name="Tb_PostionScore" EntityType="Self.Tb_PostionScore" />
+          <EntitySet Name="Tb_PostionScoreDetail" EntityType="Self.Tb_PostionScoreDetail" />
+          <EntitySet Name="Tb_Quota" EntityType="Self.Tb_Quota" />
+          <EntitySet Name="Tb_Shareholde" EntityType="Self.Tb_Shareholde" />
+          <EntitySet Name="Tb_ShareHolding" EntityType="Self.Tb_ShareHolding" />
+          <EntitySet Name="Tb_Structure" EntityType="Self.Tb_Structure" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockOnlineModelStoreContainer" CdmEntityContainer="StockOnlineEntities">
+          <EntitySetMapping Name="Tb_BasicInfo">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_BasicInfo">
+              <MappingFragment StoreEntitySet="Tb_BasicInfo">
+                <ScalarProperty Name="BasicID" ColumnName="BasicID" />
+                <ScalarProperty Name="BasicName" ColumnName="BasicName" />
+                <ScalarProperty Name="Classlayer" ColumnName="Classlayer" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Category">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Category">
+              <MappingFragment StoreEntitySet="Tb_Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemValue" ColumnName="ItemValue" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BaseColor" ColumnName="BaseColor" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Company">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Company">
+              <MappingFragment StoreEntitySet="Tb_Company">
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="LegalPerson" ColumnName="LegalPerson" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="CompanyType" ColumnName="CompanyType" />
+                <ScalarProperty Name="EnterpriseType" ColumnName="EnterpriseType" />
+                <ScalarProperty Name="CompanyAttribute" ColumnName="CompanyAttribute" />
+                <ScalarProperty Name="SetUpTime" ColumnName="SetUpTime" />
+                <ScalarProperty Name="IsFamily" ColumnName="IsFamily" />
+                <ScalarProperty Name="RegisterCapital" ColumnName="RegisterCapital" />
+                <ScalarProperty Name="SaleCapital" ColumnName="SaleCapital" />
+                <ScalarProperty Name="CompanyScale" ColumnName="CompanyScale" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyNo" ColumnName="CompanyNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Department">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Department">
+              <MappingFragment StoreEntitySet="Tb_Department">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="HigheDepartment" ColumnName="HigheDepartment" />
+                <ScalarProperty Name="HigheDepartmentID" ColumnName="HigheDepartmentID" />
+                <ScalarProperty Name="ClassLayer" ColumnName="ClassLayer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Employee">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Employee">
+              <MappingFragment StoreEntitySet="Tb_Employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="JobAge" ColumnName="JobAge" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="AnnualSalary" ColumnName="AnnualSalary" />
+                <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="EmployeeNum" ColumnName="EmployeeNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_EvaluatedFactor">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_EvaluatedFactor">
+              <MappingFragment StoreEntitySet="Tb_EvaluatedFactor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="FactorName" ColumnName="FactorName" />
+                <ScalarProperty Name="FactorRate" ColumnName="FactorRate" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_EvaluatedPeople">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_EvaluatedPeople">
+              <MappingFragment StoreEntitySet="Tb_EvaluatedPeople">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FinalShareValue" ColumnName="FinalShareValue" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_EvaluatedPeopleDetail">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_EvaluatedPeopleDetail">
+              <MappingFragment StoreEntitySet="Tb_EvaluatedPeopleDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="EvaluatedPeopleId" ColumnName="EvaluatedPeopleId" />
+                <ScalarProperty Name="EvaluatedFactorId" ColumnName="EvaluatedFactorId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_EvaluatedPostion">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_EvaluatedPostion">
+              <MappingFragment StoreEntitySet="Tb_EvaluatedPostion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="NumberOfPost" ColumnName="NumberOfPost" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="FinalShareValue" ColumnName="FinalShareValue" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_EvaluatingMaster">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_EvaluatingMaster">
+              <MappingFragment StoreEntitySet="Tb_EvaluatingMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="CompleteEvaluating" ColumnName="CompleteEvaluating" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_FileInfo">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_FileInfo">
+              <MappingFragment StoreEntitySet="Tb_FileInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+                <ScalarProperty Name="FileAuthor" ColumnName="FileAuthor" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_IncentiveObject">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_IncentiveObject">
+              <MappingFragment StoreEntitySet="Tb_IncentiveObject">
+                <ScalarProperty Name="PrimaryID" ColumnName="PrimaryID" />
+                <ScalarProperty Name="IncentiveID" ColumnName="IncentiveID" />
+                <ScalarProperty Name="PartnerPrimaryID" ColumnName="PartnerPrimaryID" />
+                <ScalarProperty Name="IncentivePost" ColumnName="IncentivePost" />
+                <ScalarProperty Name="IncentiveName" ColumnName="IncentiveName" />
+                <ScalarProperty Name="IncentiveNum" ColumnName="IncentiveNum" />
+                <ScalarProperty Name="HoldPercent" ColumnName="HoldPercent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Measure">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Measure">
+              <MappingFragment StoreEntitySet="Tb_Measure">
+                <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="MeasureTitle" ColumnName="MeasureTitle" />
+                <ScalarProperty Name="MeasureTime" ColumnName="MeasureTime" />
+                <ScalarProperty Name="Valuation" ColumnName="Valuation" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="SharesNum" ColumnName="SharesNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_MeasurePartner">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_MeasurePartner">
+              <MappingFragment StoreEntitySet="Tb_MeasurePartner">
+                <ScalarProperty Name="PrimaryID" ColumnName="PrimaryID" />
+                <ScalarProperty Name="SharesCount" ColumnName="SharesCount" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+                <ScalarProperty Name="PartnerType" ColumnName="PartnerType" />
+                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+                <ScalarProperty Name="PartnerPercent" ColumnName="PartnerPercent" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="TransferWayID" ColumnName="TransferWayID" />
+                <ScalarProperty Name="TransferWay" ColumnName="TransferWay" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="PartnerTypeID" ColumnName="PartnerTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_MeasureProgram">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_MeasureProgram">
+              <MappingFragment StoreEntitySet="Tb_MeasureProgram">
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="IsShares" ColumnName="IsShares" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Mechanism">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Mechanism">
+              <MappingFragment StoreEntitySet="Tb_Mechanism">
+                <ScalarProperty Name="MechanismID" ColumnName="MechanismID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="MechanismName" ColumnName="MechanismName" />
+                <ScalarProperty Name="IsShares" ColumnName="IsShares" />
+                <ScalarProperty Name="SharesNum" ColumnName="SharesNum" />
+                <ScalarProperty Name="SetupTime" ColumnName="SetupTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ParentBodyID" ColumnName="ParentBodyID" />
+                <ScalarProperty Name="ParentBody" ColumnName="ParentBody" />
+                <ScalarProperty Name="ParentHoldPercent" ColumnName="ParentHoldPercent" />
+                <ScalarProperty Name="ParentHoldCoun" ColumnName="ParentHoldCoun" />
+                <ScalarProperty Name="ClassLayer" ColumnName="ClassLayer" />
+                <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+                <ScalarProperty Name="StructureID" ColumnName="StructureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Member">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Member">
+              <MappingFragment StoreEntitySet="Tb_Member">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_News">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_News">
+              <MappingFragment StoreEntitySet="Tb_News">
+                <ScalarProperty Name="NewID" ColumnName="NewID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ReleaseTime" ColumnName="ReleaseTime" />
+                <ScalarProperty Name="ReleaseUserID" ColumnName="ReleaseUserID" />
+                <ScalarProperty Name="ReleaseStatus" ColumnName="ReleaseStatus" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="PageView" ColumnName="PageView" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_PeopleScore">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_PeopleScore">
+              <MappingFragment StoreEntitySet="Tb_PeopleScore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FactorId" ColumnName="FactorId" />
+                <ScalarProperty Name="EvaluatedPeopleId" ColumnName="EvaluatedPeopleId" />
+                <ScalarProperty Name="EvaluatingMasterId" ColumnName="EvaluatingMasterId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Post">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Post">
+              <MappingFragment StoreEntitySet="Tb_Post">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_PostionScore">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_PostionScore">
+              <MappingFragment StoreEntitySet="Tb_PostionScore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EvaluatedPositionId" ColumnName="EvaluatedPositionId" />
+                <ScalarProperty Name="EvaluatingMasterId" ColumnName="EvaluatingMasterId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ShareHoldingId" ColumnName="ShareHoldingId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PositionLevel" ColumnName="PositionLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_PostionScoreDetail">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_PostionScoreDetail">
+              <MappingFragment StoreEntitySet="Tb_PostionScoreDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PostionScoreId" ColumnName="PostionScoreId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="PositionFactor" ColumnName="PositionFactor" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="PositionFactorItem" ColumnName="PositionFactorItem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Quota">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Quota">
+              <MappingFragment StoreEntitySet="Tb_Quota">
+                <ScalarProperty Name="PrimaryID" ColumnName="PrimaryID" />
+                <ScalarProperty Name="QuotaID" ColumnName="QuotaID" />
+                <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+                <ScalarProperty Name="QuotaName" ColumnName="QuotaName" />
+                <ScalarProperty Name="QuotaValue" ColumnName="QuotaValue" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="QuotaType" ColumnName="QuotaType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Shareholde">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Shareholde">
+              <MappingFragment StoreEntitySet="Tb_Shareholde">
+                <ScalarProperty Name="ShareholdeID" ColumnName="ShareholdeID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="HoldMechanism" ColumnName="HoldMechanism" />
+                <ScalarProperty Name="HoldPercent" ColumnName="HoldPercent" />
+                <ScalarProperty Name="HoldCoun" ColumnName="HoldCoun" />
+                <ScalarProperty Name="HoldCategoryID" ColumnName="HoldCategoryID" />
+                <ScalarProperty Name="HoldCategoryName" ColumnName="HoldCategoryName" />
+                <ScalarProperty Name="HoldName" ColumnName="HoldName" />
+                <ScalarProperty Name="HoldAttributeID" ColumnName="HoldAttributeID" />
+                <ScalarProperty Name="HoldAttributeName" ColumnName="HoldAttributeName" />
+                <ScalarProperty Name="IsShares" ColumnName="IsShares" />
+                <ScalarProperty Name="SharesCount" ColumnName="SharesCount" />
+                <ScalarProperty Name="ShareTime" ColumnName="ShareTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ClassLayer" ColumnName="ClassLayer" />
+                <ScalarProperty Name="StructureID" ColumnName="StructureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_ShareHolding">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_ShareHolding">
+              <MappingFragment StoreEntitySet="Tb_ShareHolding">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="HoldingValue" ColumnName="HoldingValue" />
+                <ScalarProperty Name="HoldingMethod" ColumnName="HoldingMethod" />
+                <ScalarProperty Name="PositonRate" ColumnName="PositonRate" />
+                <ScalarProperty Name="PeopleRate" ColumnName="PeopleRate" />
+                <ScalarProperty Name="EvaluatingMethod" ColumnName="EvaluatingMethod" />
+                <ScalarProperty Name="EvalutatingStep" ColumnName="EvalutatingStep" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="EvaluatingType" ColumnName="EvaluatingType" />
+                <ScalarProperty Name="EvaluateDate" ColumnName="EvaluateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Structure">
+            <EntityTypeMapping TypeName="StockOnlineModel.Tb_Structure">
+              <MappingFragment StoreEntitySet="Tb_Structure">
+                <ScalarProperty Name="StructureID" ColumnName="StructureID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LastModiTime" ColumnName="LastModiTime" />
+                <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="StructureName" ColumnName="StructureName" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="IsShares" ColumnName="IsShares" />
+                <ScalarProperty Name="SharesNum" ColumnName="SharesNum" />
+                <ScalarProperty Name="PredictionDate" ColumnName="PredictionDate" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="IsActualHold" ColumnName="IsActualHold" />
+                <ScalarProperty Name="ActualHoldID" ColumnName="ActualHoldID" />
+                <ScalarProperty Name="ActualHoldName" ColumnName="ActualHoldName" />
+                <ScalarProperty Name="ActualHoldNumShares" ColumnName="ActualHoldNumShares" />
+                <ScalarProperty Name="ActualHoldNum" ColumnName="ActualHoldNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

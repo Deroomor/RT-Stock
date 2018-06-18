@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+    List<RT.Model.Tb_ShareHolding> lst = (this.ViewData["lstShareHolding"] as List<RT.Model.Tb_ShareHolding>)??new List<RT.Model.Tb_ShareHolding>();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>名称</td>
+                <td >计算方式</td>
+                <td>激励总股数</td>
+            </tr>
+         @{
+             foreach (var holding in lst)
+             {
+                <tr>
+                    <td>@holding.Name</td>
+                    <td>@holding.HoldingMethod</td>
+                    <td>@holding.HoldingValue</td>
+                </tr>
+             }
+        }
+        </table>
+    </div>
+</body>
+</html>
