@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HoldingMethods.cs" />
     <Compile Include="IDependency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RTOnline.Context.cs">
